@@ -6,3 +6,7 @@ Set-Alias which where.exe -Scope global
 Set-Alias sudo gsudo -Scope global
 Set-Alias grep Select-String -Scope global
 
+
+function global:l { Get-ChildItem $args -Exclude .* -n}
+function global:ll { Get-ChildItem $args -n -Hidden}  
+function global:home {cd "C:\Users\$env:USERNAME\"} 

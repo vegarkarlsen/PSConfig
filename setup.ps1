@@ -1,10 +1,12 @@
-
-
-
-
+# adding aliasfile to powreshell path
 $pathToAliasFolder = "C:\Users\$env:USERNAME\Documents\WindowsPowerShell\PSConfig\Aliases.ps1"
-$aliasStr = "# load alias file" + "`n" + '$aliases = ' + $pathToAliasFolder + "`n" + '& $aliases -Scope Global' 
+$AddAliasesString = "# load aliases file" + "`n" + '$aliases = ' + '"' + $pathToAliasFolder + '"'
 
+$checkForAliases = Get-Content $profile | select-string -pattern "load aliases" -context 0,2
 
-#Add-Content C:\Users\$env:USERNAME\Documents\WindowsPowerShell\PSConfig\test.txt $aliasStr
+# Add aliases path to profile if it is not already there
+if (-not $checkForAliases) {
+    Add-Content $profile $AddAliasesString
+    Write-Output "Added paths to aliases.ps1 in $profile"
+}
 
