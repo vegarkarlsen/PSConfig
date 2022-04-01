@@ -10,3 +10,14 @@ if (-not $checkForAliases) {
     Write-Output "Added paths to aliases.ps1 in $profile"
 }
 
+# adding PsConfig path as a variable
+$pathToPsConfig = "C:\Users\$env:USERNAME\Documents\WindowsPowerShell\PSConfig\"
+$AddPsConfigString = "# add PSConfig path" + "`n" + '$PSConfig = ' + '"' + $pathToPsConfig + '"'
+
+$checkForPsConfig = Get-Content $profile | select-string -pattern "add PSConfig" -context 0,2
+
+if (-not $checkForPsConfig) {
+    Add-Content $profile $AddPsConfigString
+    Write-Output "Added paths to PSConfig in $profile"
+}
+
