@@ -5,6 +5,8 @@ Set-Alias activate .\venv\Scripts\activate.ps1 -Scope global
 Set-Alias which where.exe -Scope global
 Set-Alias sudo gsudo -Scope global
 Set-Alias grep Select-String -Scope global
+Set-Alias zip Compress-Archive -Scope global
+set-alias unzip Expand-Archive -Scope global
 
 
 function global:l { Get-ChildItem $args -Exclude .* -n}
