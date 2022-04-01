@@ -9,6 +9,7 @@ Set-Alias zip Compress-Archive -Scope global
 set-alias unzip Expand-Archive -Scope global
 
 
+
 function global:l { Get-ChildItem $args -Exclude .* -n}
 function global:ll { Get-ChildItem $args -n -Hidden}  
 function global:home {Set-Location "C:\Users\$env:USERNAME\"} 
