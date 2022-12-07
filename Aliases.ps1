@@ -11,14 +11,15 @@ set-Alias unzip Expand-Archive -Scope global
 Set-Alias e explorer.exe -Scope global
 
 
+# Qucik acsess to config files
+function global:vimconfig { vim C:\tools\vim\_vimrc }
+function global:malias { vim C:\Users\$env:USERNAME\Documents\WindowsPowerShell\PSConfig\Aliases.ps1}
+
+
 # Shutdown
-function global:poweroff {shutdown /s}
-function global:reboot {shutdown /r}
+function global:poweroff { shutdown /s }
+function global:reboot { shutdown /r }
 
-
-
-# nano to this file
-function global:malias {nano C:\Users\$env:USERNAME\Documents\WindowsPowerShell\PSConfig\Aliases.ps1}
 
 # ls aliases
 function global:l { Get-ChildItem $args -Exclude .* -n}
