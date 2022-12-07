@@ -9,8 +9,9 @@ Set-Alias zip Compress-Archive -Scope global
 set-alias unzip Expand-Archive -Scope global
 Set-Alias e explorer.exe -Scope global
 
-# Quick accsess to this file
-function global:malias {nano "C:\Users\vegar\Documents\WindowsPowerShell\PSConfig\Aliases.ps1"}
+
+# nano to this file
+function global:malias {nano C:\Users\$env:USERNAME\Documents\WindowsPowerShell\PSConfig\Aliases.ps1}
 
 
 function global:l { Get-ChildItem $args -Exclude .* -n}
